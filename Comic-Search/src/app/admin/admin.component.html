@@ -1,0 +1,61 @@
+<h1 align="center"> Welcome Admin </h1><br><br>
+
+<div *ngIf="flag">
+<form #userform="ngForm" class="form-group" (ngSubmit)="onsubmit(action,type)">
+<label>Choose an action:</label>
+<select [(ngModel)]="action" name="Select action" class="ui fluid search selection dropdown">
+    <option *ngFor="let n of actions" [attr.value]="n">{{n}}</option>
+    </select><br><br>
+
+<label>You want to add</label>
+ <select [(ngModel)]="type" 
+ name="Select type" class="ui fluid search selection dropdown">
+    <option *ngFor="let n of types" [attr.value]="n">{{n}}</option>
+    </select>
+  <div>
+<p align="center">
+      <button align="right" class="btn btn-success"  name="button" >Submit</button><br><br><br><br>
+</p>
+    </div>
+    </form>
+</div>
+
+
+
+<div *ngIf= 'addSeries'>
+<app-series></app-series><br><br>
+<div>
+  <table class=" table table-bordered ">
+    <thead>
+      <tr>
+        <th>Series Name</th>
+        <th>description</th>
+        <th>ID</th>
+         <th>Created By</th>
+      </tr>
+      </thead>
+    <tr *ngFor="let items of Data">
+      <td>{{items.name}}</td>
+           <td>{{items.description}}</td>
+               <td>{{items._id}}</td>
+                <td>{{items.created_by}}</td><button (click)="onDelete(items._id)" class="button btn-success">Delete</button>
+
+      </tr>
+    </table>
+
+</div>
+</div>
+
+
+<div *ngIf= 'addSeason'>
+ 
+<app-season></app-season>
+</div>
+
+
+<div *ngIf= 'addEpisode'>
+<app-episode></app-episode>
+</div>
+
+
+

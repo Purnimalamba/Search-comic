@@ -1,0 +1,63 @@
+
+
+<form #userform2="ngForm" class="form-group" (ngSubmit)="onsubmit2(userform2)">
+  <div class="col-xs-10">
+
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" #Name='ngModel' class="form-control" name="name" [(ngModel)]="name" title="Minimum 3 character maximum 5 character"      placeholder="Enter Name" required>
+    </div>
+
+
+    <div class="form-group">
+      <label>Description</label>
+      <input type="text" #Description='ngModel' class="form-control" name="description" title="Minimum 3 character maximum 5 character" [(ngModel)]="description" placeholder="Enter description" required>
+    </div>
+
+     <div class="form-group">
+      <label>Start on</label>
+      <input type="Date" #Start='ngModel' class="form-control" name="created_by" title="Minimum 3 character maximum 5 character" [(ngModel)]="start" placeholder="Enter Created by" required>
+    </div>
+
+    <div class="form-group">
+      <label>Ends on</label>
+      <input type="Date" #End='ngModel' class="form-control" name="created_by" title="Minimum 3 character maximum 5 character" [(ngModel)]="end" placeholder="Enter Created by" required>
+    </div>
+
+<div class="form-group">
+      <label>Series ID</label>
+      <input type="text" #SeriesID='ngModel' class="form-control" name="created_by" title="Minimum 3 character maximum 5 character" [(ngModel)]="seriesID" placeholder="Enter Created by" required>
+    </div>
+
+    <div>
+<p align="right">
+      <button align="center" class="btn btn-success"  name="button" >Add Season</button><br><br><br><br>
+</p>
+    </div>
+  </div>
+
+
+</form><br><br>
+
+<div>
+  <table class=" table table-bordered ">
+    <thead>
+      <tr>
+        <th>Season Name</th>
+        <th>Id</th>
+        <th>description</th>
+        <th>Starts on</th>
+         <th>Ends on</th>
+      </tr>
+      </thead>
+    <tr *ngFor="let items of data">
+      <td>{{items.name}}</td>
+      <td>{{items._id}}</td>
+           <td>{{items.description}}</td>
+               <td>{{items.starts_on}}</td>
+                <td>{{items.ends_on}}</td><button (click)="onDelete(items._id)" class="button btn-success">Delete</button>
+
+      </tr>
+    </table>
+
+</div>

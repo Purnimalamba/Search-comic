@@ -1,0 +1,57 @@
+<form #userform3="ngForm" class="form-group" (ngSubmit)="onsubmit3(userform3)">
+  <div class="col-xs-10">
+
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" #Name='ngModel' class="form-control" name="name" [(ngModel)]="name" title="Minimum 3 character maximum 5 character"      placeholder="Enter Name" required>
+    </div>
+
+
+
+
+
+    <div class="form-group">
+      <label>Story</label>
+      <input type="text" #Story='ngModel' class="form-control" name="description" title="Minimum 3 character maximum 5 character" [(ngModel)]="story" placeholder="Enter story" required>
+    </div>
+
+     <div class="form-group">
+      <label>Season ID</label>
+      <input type="text" #SeasonID='ngModel' class="form-control" name="created_by" title="Minimum 3 character maximum 5 character" [(ngModel)]="season" placeholder="Enter Season ID" required>
+    </div>
+
+    
+
+
+    <div>
+<p align="right">
+      <button align="center" class="btn btn-success"  name="button" >Add Episode</button><br><br><br><br>
+</p>
+    </div>
+  </div>
+
+
+</form><br><br>
+
+<div>
+  <table class=" table table-bordered ">
+    <thead>
+      <tr>
+        <th>Episode Name</th>
+        <th>Id</th>
+        <th>Story</th>
+        <th>Season ID</th>
+         
+      </tr>
+      </thead>
+    <tr *ngFor="let items of data">
+      <td>{{items.name}}</td>
+      <td>{{items._id}}</td>
+           <td>{{items.story}}</td>
+               <td>{{items.season_id}}</td>
+           <button (click)="onDelete(items._id)" class="button btn-success">Delete</button>
+
+      </tr>
+    </table>
+
+</div>

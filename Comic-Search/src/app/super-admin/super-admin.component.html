@@ -1,0 +1,77 @@
+<h1 align="center"> Welcome Admin </h1><br><br>
+
+<div *ngIf="flag">
+<form #userform="ngForm" class="form-group" (ngSubmit)="onsubmit(action,type)">
+<label>Choose an action:</label>
+<select [(ngModel)]="action" name="Select action" class="ui fluid search selection dropdown"> 
+    <option *ngFor="let n of actions" [attr.value]="n">{{n}}</option>
+    </select><br><br>
+
+<label>You want to add/update:</label>
+ <select [(ngModel)]="type" name="Select type" class="ui fluid search selection dropdown"> 
+    <option *ngFor="let n of types" [attr.value]="n">{{n}}</option>
+    </select>
+  <div>
+<p align="center">
+      <button align="right" class="btn btn-success"  name="button" >Submit</button><br><br><br><br>
+</p>
+    </div>
+    </form>
+</div>
+
+
+
+<div *ngIf= '!flag'>
+<form #userform1="ngForm" class="form-group" (ngSubmit)="onsubmit1(userform1)">
+  <div class="col-xs-10">
+
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" #Name='ngModel' class="form-control" name="name" [(ngModel)]="name" title="Minimum 3 character maximum 5 character"      placeholder="Enter Name" required>
+    </div>
+
+  
+
+  
+
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" #Password='ngModel' class="form-control" name="password" title="Minimum 3 character maximum 5 character" [(ngModel)]="password" placeholder="Enter Password" required>
+    </div>
+
+   
+
+ 
+    <div>
+<p align="right">
+      <button align="center" class="btn btn-success"  name="button" >Add</button><br><br><br><br>
+</p>
+    </div>
+  </div>
+
+
+</form>
+</div>
+
+<div>
+  <table class=" table table-bordered ">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Password</th>
+        <th>ID</th>
+         <th>Role</th>
+      </tr>
+      </thead>
+    <tr *ngFor="let items of Data">
+      <td>{{items.name}}</td>
+           <td>{{items.password}}</td>
+           
+           
+                <td>{{items._id}}</td>
+                <td>{{items.Role}}</td><button (click)="onDelete(items._id)" class="button btn-success">Delete</button>
+               
+      </tr>
+    </table>
+
+</div>

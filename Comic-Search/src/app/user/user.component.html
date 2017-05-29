@@ -1,0 +1,18 @@
+<div>
+  <table class=" table table-bordered ">
+    <thead>
+      <tr>
+        <th>Episode Name</th>
+        <th>story</th>
+        <th>comment</th>
+         
+      </tr>
+      </thead>
+    <tr *ngFor="let items of data">
+      <td>{{items.name}}</td>
+           <td>{{items.story}}</td>
+            <td> <input #comment type="text" name="coment" ></td><button  (click)="post(comment.value)" class="button btn-success">Post</button>
+
+      </tr>
+    </table>
+</div>

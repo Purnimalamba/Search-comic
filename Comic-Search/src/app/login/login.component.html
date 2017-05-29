@@ -1,0 +1,50 @@
+
+
+<div class="jumbotron">
+      <div class="container">
+       <h1 class="text-center"> WELCOME ON COMIC WEBPAGE</h1>
+       <form #userform="ngForm" class="form-group" (ngSubmit)="searchComic(userform)">
+       <input required type="text" #Search='ngModel' [(ngModel)]="search"  name="search" placeholder="Search Comics" class="form-control">
+       <button type="submit" class="btn btn-success">Search</button>
+       </form>
+      </div>
+      
+</div><br><br>
+
+<div *ngIf="!display">
+<ul class="list-group" *ngFor="let items of data">
+  <li class="list-group-item">{{items.name}}</li>
+</ul>
+</div>
+
+<div *ngIf="display">
+
+<form #userform="ngForm" class="form-group" (ngSubmit)="onsubmit(userform)">
+  <div class="col-xs-10">
+
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" #Name='ngModel' class="form-control" name="name" [(ngModel)]="name" title="Minimum 3 character maximum 5 character"      placeholder="Enter Name" required>
+    </div>
+
+  
+
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" #Password='ngModel' class="form-control" name="password" title="Minimum 3 character maximum 5 character" [(ngModel)]="password" placeholder="Enter Password" required>
+    </div>
+
+   
+
+ 
+    <div>
+<p align="right">
+      <button align="right" class="btn btn-success"  name="button" >LOGIN</button><br><br><br><br>
+</p>
+    </div>
+  </div>
+
+
+
+</form>
+</div>
